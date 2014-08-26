@@ -68,6 +68,9 @@ class HackFreeRice:
 
     def doQuestion(self, verbose=False):
 
+        # Close twitter solicitation, if present
+        self.browser.execute_script("$('#twt-skip').click()")
+
         question_text = self.browser.evaluate_script("$('#question-title').text()")
         question_text = question_text.split('loader')
         question_text = ''.join(question_text)
